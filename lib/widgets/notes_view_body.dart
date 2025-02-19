@@ -18,3 +18,27 @@ class NotesViewBody extends StatelessWidget {
   }
 }
 
+class NoteItem extends StatelessWidget {
+  const NoteItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.yellow.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        children: [
+          ListTile(
+            title: const Text("Flutter tips"),
+
+            subtitle: const Text("Flutter tips and tricks"),
+            trailing: IconButton(onPressed: (){}, icon: const Icon(Icons.delete)), 
+          )
+        ],
+      ),
+    );
+  }
+}
+
