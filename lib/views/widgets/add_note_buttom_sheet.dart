@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/widgets/custom_button.dart';
-import 'package:note_app/widgets/custom_text_filed.dart';
+import 'package:note_app/views/widgets/custom_button.dart';
+import 'package:note_app/views/widgets/custom_text_filed.dart';
 
 class AddNoteButtonSheet extends StatelessWidget {
   const AddNoteButtonSheet({super.key});
