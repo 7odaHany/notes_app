@@ -17,6 +17,7 @@ class NotesView extends StatelessWidget {
         backgroundColor: kPrimaryColor,
         onPressed: (){
           showModalBottomSheet(
+            isScrollControlled: true,// info: isScrollControlled is a property that allows the bottom sheet to be full screen
             context: context,
              builder: (context) {
               return const AddNoteButtonSheet();

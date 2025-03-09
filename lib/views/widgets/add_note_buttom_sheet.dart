@@ -21,11 +21,17 @@ class AddNoteButtonSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return AbsorbPointer( // info: AbsorbPointer is a widget that prevents user interaction with its child widget
+          return AbsorbPointer(
+            // info: AbsorbPointer is a widget that prevents user interaction with its child widget
             absorbing: state is AddNoteLoading ? true : false,
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: SingleChildScrollView(child: AddNoteForm()),
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 16,
+                bottom: 8 + MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: const SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },
