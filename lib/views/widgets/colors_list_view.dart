@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_app/constants.dart';
+import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
 
 class ColorsItem extends StatelessWidget {
   const ColorsItem({super.key, required this.isSelected, required this.color});
@@ -31,25 +34,14 @@ class ColorListWiew extends StatefulWidget {
 
 class _ColorListWiewState extends State<ColorListWiew> {
   int currentIndex = 0;
-  List<Color> colors = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-    Colors.purple,
-    Colors.orange,
-    Colors.pink,
-    Colors.teal,
-    Colors.cyan,
-    Colors.brown,
-  ];
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 76,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: colors.length,
+        itemCount: kColors.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -57,10 +49,11 @@ class _ColorListWiewState extends State<ColorListWiew> {
               onTap: () {
                 setState(() {
                   currentIndex = index;
+                  BlocProvider.of<AddNoteCubit>(context).selectedColor = kColors[index];
                 });
               },
               child: ColorsItem(
-                color: colors[index],
+                color: kColors[index],
                 isSelected: currentIndex == index,
               ),
             ),

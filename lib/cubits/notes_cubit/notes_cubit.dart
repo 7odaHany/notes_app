@@ -12,6 +12,7 @@ List<NoteModel>? notes;
   fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(kNotesBox);
     notes = notesBox.values.toList();
+    notes!.sort((a, b) => b.date.compareTo(a.date));
     emit(NoteSuccess());
   }
 }
